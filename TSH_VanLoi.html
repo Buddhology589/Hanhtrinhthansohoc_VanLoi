@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo Cáo Thần Số Học - Tống Văn Lợi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 60vh;
+            max-height: 450px;
+            width: 100%;
+            max-width: 450px;
+        }
+        .active-tab {
+            border-bottom-color: #f59e0b;
+            color: #f59e0b;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800">
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: The application is structured as a single-page dashboard with tab-based navigation to facilitate non-linear exploration. It begins with a hero section highlighting the most crucial number (Life Path) for immediate impact. The core of the app is divided into thematic sections: 'Tổng Quan' (Overview), 'Các Chỉ Số Cốt Lõi' (Core Numbers), 'Kim Tự Tháp & Giai Đoạn' (Pyramids & Stages), and 'Biểu Đồ Năng Lượng' (Energy Chart). This structure was chosen to break down complex information into digestible, self-contained modules. Users can easily jump to the section that interests them most, rather than scrolling through a long, linear document. This design prioritizes user control, clarity, and engagement by combining text summaries, interactive charts, and structured data cards. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: Core numerology numbers (Life Path, Expression, etc.). Goal: Inform. Viz/Presentation Method: Thematic content cards with large numbers and descriptive text. Interaction: Scrolling and reading. Justification: Provides clear, isolated explanations for each core concept. Library/Method: HTML/Tailwind.
+        - Report Info: Life Pinnacles and Challenges over time. Goal: Show Change/Progression. Viz/Presentation Method: A vertical timeline-like structure built with HTML. Interaction: User scrolls through their life stages chronologically. Justification: This visualizes the user's life journey and key transition points more effectively than a simple list. Library/Method: HTML/Tailwind.
+        - Report Info: The balance and relationship between core numbers. Goal: Show Relationships/Organize. Viz/Presentation Method: A Radar Chart. Interaction: Hovering over points to see details. Justification: Provides a quick, holistic visual summary of the user's energetic strengths and how different aspects of their personality interact. Library/Method: Chart.js (Canvas).
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+
+        <header id="overview" class="text-center mb-12">
+            <h1 class="text-3xl md:text-5xl font-bold text-amber-600">Khám Phá Thần Số Học</h1>
+            <h2 class="text-2xl md:text-3xl font-semibold text-stone-700 mt-2">Tống Văn Lợi - 15/10/1992</h2>
+            <p class="mt-4 max-w-3xl mx-auto text-lg text-stone-600 leading-relaxed">
+                Chào bạn Lợi, báo cáo này là tấm bản đồ năng lượng cá nhân, giải mã những con số cốt lõi trong ngày sinh và họ tên của bạn. Nó không định đoạt tương lai, mà là một công cụ mạnh mẽ để bạn thấu hiểu sâu sắc hơn về bản thân, khám phá tiềm năng và định hướng con đường phát triển phù hợp nhất.
+            </p>
+        </header>
+
+        <div class="sticky top-0 bg-stone-50/80 backdrop-blur-sm z-10 mb-10">
+            <nav id="nav-menu" class="flex justify-center border-b-2 border-stone-200">
+                <a href="#overview-section" class="nav-link text-stone-500 hover:text-amber-600 py-3 px-3 sm:px-6 text-sm sm:text-base border-b-4 border-transparent transition-colors duration-300">Tổng Quan</a>
+                <a href="#core-numbers" class="nav-link text-stone-500 hover:text-amber-600 py-3 px-3 sm:px-6 text-sm sm:text-base border-b-4 border-transparent transition-colors duration-300">Chỉ Số Cốt Lõi</a>
+                <a href="#life-stages" class="nav-link text-stone-500 hover:text-amber-600 py-3 px-3 sm:px-6 text-sm sm:text-base border-b-4 border-transparent transition-colors duration-300">Các Giai Đoạn</a>
+                <a href="#energy-chart" class="nav-link text-stone-500 hover:text-amber-600 py-3 px-3 sm:px-6 text-sm sm:text-base border-b-4 border-transparent transition-colors duration-300">Biểu Đồ Năng Lượng</a>
+            </nav>
+        </div>
+
+        <main>
+            <section id="overview-section" class="mb-16">
+                 <div class="text-center bg-white p-8 rounded-2xl shadow-lg border border-stone-100">
+                     <h3 class="text-2xl font-bold text-amber-600 mb-4">Con Số Chủ Đạo Của Bạn Là 1</h3>
+                     <p class="text-stone-600 leading-relaxed max-w-4xl mx-auto">
+                        Tổng quan, bạn mang năng lượng của một nhà lãnh đạo độc lập, tiên phong (Số 1), với khả năng giao tiếp, sáng tạo và truyền cảm hứng mạnh mẽ (Số 3). Đằng sau vẻ ngoài đầy tham vọng và quyền lực (Số 8), bạn ẩn chứa một linh hồn của một "Bậc Thầy Kiến Tạo" (Số 22) với tầm nhìn lớn lao và khả năng biến những ý tưởng vĩ đại thành hiện thực. Bạn có một trái tim nhân hậu, luôn hướng về gia đình và trách nhiệm (Số 6). Sự kết hợp này tạo nên một con người có tiềm năng to lớn để xây dựng những dự án có giá trị, bền vững và ảnh hưởng tích cực đến cộng đồng, miễn là bạn cân bằng được giữa khát vọng cá nhân và sự cống hiến cho tập thể.
+                     </p>
+                 </div>
+            </section>
+            
+            <section id="core-numbers" class="mb-16">
+                <h3 class="text-3xl font-bold text-center mb-10 text-stone-700">Các Chỉ Số Cốt Lõi</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <div class="bg-white rounded-2xl shadow-lg p-6 border border-stone-100 transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="text-amber-500 text-6xl font-bold mb-3">1</div>
+                        <h4 class="text-xl font-semibold text-stone-800 mb-2">Số Đường Đời</h4>
+                        <p class="text-stone-600 leading-relaxed">Đây là con số quan trọng nhất, đại diện cho con đường bạn sẽ đi. Số 1 là biểu tượng của người lãnh đạo, sự tiên phong, độc lập và quyết đoán. Bạn có khả năng tự thân vận động, không ngại đối mặt thử thách và có tố chất dẫn dắt người khác. Bài học của bạn là học cách tin tưởng vào bản thân và dám đi con đường riêng của mình.</p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-lg p-6 border border-stone-100 transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="text-amber-500 text-6xl font-bold mb-3">3</div>
+                        <h4 class="text-xl font-semibold text-stone-800 mb-2">Số Sứ Mệnh</h4>
+                        <p class="text-stone-600 leading-relaxed">Con số này thể hiện tài năng và cách bạn thể hiện bản thân ra thế giới. Với số 3, bạn có khả năng giao tiếp, sáng tạo và truyền cảm hứng bẩm sinh. Bạn lạc quan, có khiếu hài hước và dễ dàng thu hút người khác. Sứ mệnh của bạn là dùng lời nói và sự sáng tạo của mình để mang lại niềm vui và động lực cho mọi người.</p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-lg p-6 border border-stone-100 transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="text-amber-500 text-6xl font-bold mb-3">22/4</div>
+                        <h4 class="text-xl font-semibold text-stone-800 mb-2">Số Linh Hồn</h4>
+                        <p class="text-stone-600 leading-relaxed">Đây là khao khát sâu thẳm bên trong trái tim bạn. Con số 22 là một "Số Vua" (Master Number), mang năng lượng của người kiến tạo vĩ đại. Bạn khao khát xây dựng những thứ có giá trị lâu dài, có tầm ảnh hưởng lớn. Bạn có tầm nhìn xa và khả năng biến ước mơ thành hiện thực. Tuy nhiên, nó cũng đi kèm với áp lực và trách nhiệm to lớn.</p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-lg p-6 border border-stone-100 transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="text-amber-500 text-6xl font-bold mb-3">8</div>
+                        <h4 class="text-xl font-semibold text-stone-800 mb-2">Số Nhân Cách</h4>
+                        <p class="text-stone-600 leading-relaxed">Đây là ấn tượng bạn tạo ra cho người khác khi mới tiếp xúc. Mọi người nhìn nhận bạn là một người có quyền lực, tham vọng, và giỏi điều hành. Bạn toát ra năng lượng của sự thành công, có đầu óc kinh doanh và khả năng quản lý tài chính tốt. Bạn nghiêm túc và tập trung vào mục tiêu.</p>
+                    </div>
+                    
+                     <div class="bg-white rounded-2xl shadow-lg p-6 border border-stone-100 transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="text-amber-500 text-6xl font-bold mb-3">6</div>
+                        <h4 class="text-xl font-semibold text-stone-800 mb-2">Số Ngày Sinh</h4>
+                        <p class="text-stone-600 leading-relaxed">Con số này bổ sung một tài năng đặc biệt cho bạn. Số 6 đại diện cho tình yêu thương, trách nhiệm và sự chăm sóc. Bạn có xu hướng quan tâm đến gia đình, bạn bè và cộng đồng. Bạn là người đáng tin cậy, luôn sẵn sàng giúp đỡ và có khả năng tạo ra sự hòa hợp, ấm áp ở bất cứ đâu bạn đến.</p>
+                    </div>
+
+                </div>
+            </section>
+            
+            <section id="life-stages" class="mb-16">
+                <h3 class="text-3xl font-bold text-center mb-10 text-stone-700">Hành Trình Cuộc Đời Qua 4 Giai Đoạn</h3>
+                <p class="text-center text-stone-600 max-w-3xl mx-auto mb-12">Cuộc đời bạn được chia thành 4 giai đoạn lớn, mỗi giai đoạn mang một đỉnh cao (bài học và cơ hội) và một thử thách cần vượt qua. Hiểu rõ điều này giúp bạn chuẩn bị và tận dụng tốt nhất từng chặng đường.</p>
+                <div class="space-y-8 max-w-4xl mx-auto">
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-center bg-white p-6 rounded-2xl shadow-lg border border-stone-100">
+                        <div class="md:col-span-1 text-center">
+                            <p class="text-lg font-semibold text-amber-600">Giai Đoạn 1</p>
+                            <p class="text-sm text-stone-500">(0 - 27 tuổi)</p>
+                        </div>
+                        <div class="md:col-span-3 grid grid-cols-2 gap-4">
+                            <div>
+                                <p class="font-semibold text-stone-700">Đỉnh Cao: 7</p>
+                                <p class="text-sm text-stone-600">Học hỏi, chiêm nghiệm, phát triển nội tâm và kiến thức chuyên môn.</p>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-stone-700">Thử Thách: 5</p>
+                                <p class="text-sm text-stone-600">Cân bằng giữa tự do và kỷ luật, tránh sự bốc đồng, thay đổi liên tục.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-center bg-amber-50/50 p-6 rounded-2xl shadow-lg border-2 border-amber-500">
+                        <div class="md:col-span-1 text-center">
+                            <p class="text-lg font-semibold text-amber-600">Giai Đoạn 2</p>
+                            <p class="text-sm text-stone-500">(28 - 36 tuổi)</p>
+                            <p class="text-xs font-bold text-amber-700">(HIỆN TẠI)</p>
+                        </div>
+                        <div class="md:col-span-3 grid grid-cols-2 gap-4">
+                            <div>
+                                <p class="font-semibold text-stone-700">Đỉnh Cao: 9</p>
+                                <p class="text-sm text-stone-600">Cơ hội để cống hiến, thể hiện lòng nhân ái, hoàn thành các mục tiêu lớn.</p>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-stone-700">Thử Thách: 3</p>
+                                <p class="text-sm text-stone-600">Vượt qua sự tự ti, thể hiện bản thân, tránh hời hợt và phân tán năng lượng.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-center bg-white p-6 rounded-2xl shadow-lg border border-stone-100">
+                        <div class="md:col-span-1 text-center">
+                            <p class="text-lg font-semibold text-amber-600">Giai Đoạn 3</p>
+                            <p class="text-sm text-stone-500">(37 - 45 tuổi)</p>
+                        </div>
+                        <div class="md:col-span-3 grid grid-cols-2 gap-4">
+                           <div>
+                                <p class="font-semibold text-stone-700">Đỉnh Cao: 7</p>
+                                <p class="text-sm text-stone-600">Quay lại đào sâu trí tuệ, chia sẻ kiến thức, trở thành chuyên gia.</p>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-stone-700">Thử Thách: 2</p>
+                                <p class="text-sm text-stone-600">Học cách hợp tác, kiên nhẫn, cân bằng các mối quan hệ, tránh nhạy cảm quá mức.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-center bg-white p-6 rounded-2xl shadow-lg border border-stone-100">
+                        <div class="md:col-span-1 text-center">
+                            <p class="text-lg font-semibold text-amber-600">Giai Đoạn 4</p>
+                            <p class="text-sm text-stone-500">(46 tuổi trở đi)</p>
+                        </div>
+                        <div class="md:col-span-3 grid grid-cols-2 gap-4">
+                            <div>
+                                <p class="font-semibold text-stone-700">Đỉnh Cao: 4</p>
+                                <p class="text-sm text-stone-600">Xây dựng sự ổn định, vững chắc về mọi mặt (sự nghiệp, gia đình, tài chính).</p>
+                            </div>
+                           <div>
+                                <p class="font-semibold text-stone-700">Thử Thách: 2</p>
+                                <p class="text-sm text-stone-600">Tiếp tục bài học về sự hợp tác, lắng nghe và duy trì sự hòa hợp.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="energy-chart" class="mb-16">
+                <h3 class="text-3xl font-bold text-center mb-4 text-stone-700">Biểu Đồ Năng Lượng Cá Nhân</h3>
+                <p class="text-center text-stone-600 max-w-3xl mx-auto mb-10">Biểu đồ này thể hiện sự tương quan về năng lượng giữa các chỉ số cốt lõi của bạn. Nó cho thấy những lĩnh vực bạn mạnh mẽ một cách tự nhiên và những nơi bạn cần chú ý cân bằng hơn để phát huy hết tiềm năng.</p>
+                <div class="chart-container bg-white p-4 rounded-2xl shadow-lg border border-stone-100">
+                    <canvas id="myEnergyChart"></canvas>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center mt-16 border-t pt-8 border-stone-200">
+            <p class="text-stone-500">Báo cáo được tạo ra để tham khảo và khám phá bản thân.</p>
+            <p class="text-sm text-stone-400 mt-1">Chúc bạn một hành trình đầy ý nghĩa!</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const chartCtx = document.getElementById('myEnergyChart').getContext('2d');
+            const energyChart = new Chart(chartCtx, {
+                type: 'radar',
+                data: {
+                    labels: [
+                        'Đường Đời (Lãnh đạo)', 
+                        'Sứ Mệnh (Sáng tạo)', 
+                        'Linh Hồn (Kiến tạo)', 
+                        'Nhân Cách (Điều hành)', 
+                        'Ngày Sinh (Chăm sóc)'
+                    ],
+                    datasets: [{
+                        label: 'Năng Lượng Cá Nhân',
+                        data: [1, 3, 4, 8, 6],
+                        fill: true,
+                        backgroundColor: 'rgba(245, 158, 11, 0.2)',
+                        borderColor: 'rgb(245, 158, 11)',
+                        pointBackgroundColor: 'rgb(245, 158, 11)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgb(245, 158, 11)'
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    scales: {
+                        r: {
+                            angleLines: {
+                                color: 'rgba(120, 113, 108, 0.2)'
+                            },
+                            grid: {
+                                color: 'rgba(120, 113, 108, 0.2)'
+                            },
+                            pointLabels: {
+                                font: {
+                                    size: 12,
+                                    family: "'Be Vietnam Pro', sans-serif"
+                                },
+                                color: '#44403c'
+                            },
+                            ticks: {
+                                backdropColor: 'rgba(251, 251, 250, 0.8)',
+                                color: '#78716c',
+                                stepSize: 2
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if(context.label === 'Linh Hồn (Kiến tạo)') {
+                                        label += '22/4';
+                                    } else if (context.parsed.r !== null) {
+                                        label += context.parsed.r;
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('main > section, header');
+            const navMenu = document.getElementById('nav-menu');
+
+            function changeActiveLink() {
+                let index = sections.length;
+
+                while(--index && window.scrollY + 100 < sections[index].offsetTop) {}
+                
+                navLinks.forEach((link) => link.classList.remove('active-tab'));
+                const activeLink = document.querySelector(`.nav-link[href="#${sections[index].id.replace('-section', '')}"]`);
+                if(activeLink) {
+                    activeLink.classList.add('active-tab');
+                }
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId === '#overview' ? '#overview' : targetId);
+                    if (targetSection) {
+                         window.scrollTo({
+                            top: targetSection.offsetTop - navMenu.offsetHeight - 10,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            window.addEventListener('scroll', changeActiveLink);
+            changeActiveLink();
+
+        });
+    </script>
+</body>
+</html>
